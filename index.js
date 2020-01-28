@@ -190,9 +190,14 @@ function getLastCarInfo(inventory) {
  * For example, if getCarInfoById is invoked with the inventory and the number 1,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoById(inventory, num) {
-  return `This is a ${inventory[num - 1].car_make} ${inventory[num-1].car_model}`;
-}
+  function getCarInfoById(arr, num) {
+    for(let i = 0; i < arr.length; i++){
+      if(arr[i].id === num){
+        return `This is a ${arr[i].car_make} ${arr[i].car_model}`
+      }
+    }
+  }
+  
 
 /**
  * ### Challenge `sortCarInventory`
