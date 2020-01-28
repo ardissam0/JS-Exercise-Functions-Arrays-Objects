@@ -158,8 +158,8 @@ function getCarInfoByIndex(arrayOfCars, index) {
   //index is a number
   //arrayOfCars[index] is one object out of the array
   //to open up the object at the car_make value I used .(dot) notation
-  
-  return arrayOfCars[index].car_make;
+
+  return arrayOfCars[index].car_make + arrayOfCars[index].car_model;
 }
 /**
  * ### Challenge `getLastCarInfo`
@@ -172,8 +172,10 @@ function getCarInfoByIndex(arrayOfCars, index) {
  * For example, if getLastCarInfo is invoked passing the inventory inside /data/inventory.js,
  * it will return `This is a Lincoln Town Car`.
 */
-function getLastCarInfo(/* code here */) {
-  /* code here */
+function getLastCarInfo(inventory) {
+  const lastCar = inventory[inventory.length -1];
+  
+  return `This is a ${lastCar.car_make} ${lastCar.car_model}`;
 }
 
 /**
@@ -188,8 +190,8 @@ function getLastCarInfo(/* code here */) {
  * For example, if getCarInfoById is invoked with the inventory and the number 1,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoById(/* code here */) {
-  /* code here */
+function getCarInfoById(inventory, num) {
+  return `This is a ${inventory[num - 1].car_make} ${inventory[num-1].car_model}`;
 }
 
 /**
@@ -200,8 +202,20 @@ function getCarInfoById(/* code here */) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
 */
-function sortCarInventory(/* code here */) {
-  /* code here */
+function sortCarInventory(inventory) {
+  const sorted = inventory;
+  sorted.sort(function(a, b) {
+    var carA = a.car_model.toUpperCase();
+    var carB = b.car_model.toUpperCase();
+    if (carA < carB) {
+      return -1;
+    }
+    if (carA > carB) {
+      return 1;
+    }
+    return 0;
+  });
+  return sorted;
 }
 
 /**
@@ -213,8 +227,7 @@ function sortCarInventory(/* code here */) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
-function getModelYears(/* code here */) {
-  /* code here */
+function getModelYears(inventory) {
 }
 
 /**
@@ -266,9 +279,15 @@ function getGermanCars(/* code here */) {
  *   return num * 2
  * }
 */
-const sum = null; // code here!
-const addFive = null; // code here!
-const argTimesTwo = null; // code here!
+const sum = (a, b) => {
+  return a + b;
+}; // code here!
+const addFive = (num) => {
+  return num + 5;
+}; // code here!
+const argTimesTwo = (num) => {
+  return num * 2;
+}; // code here!
 
 /**
  * ### Challenge `carMaker`
