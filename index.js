@@ -271,15 +271,16 @@ function getOlderCars(inventory, max) {
 function getGermanCars(inventory) {
   const carsOfGermany = [];
 
-  for (i=0; i < inventory.length; i++)
+  for (i=0; i < inventory.length; i++) {
 
-    if(inventory[i].car_make === "Mercedes_Benz" || inventory[i].car_make === "BMW" || inventory[i].car_make === "Volkswagen" || inventory[i].car_make === "Audi")
+    if(inventory[i].car_make === "Mercedes-Benz" || inventory[i].car_make === "BMW" || inventory[i].car_make === "Volkswagen" || inventory[i].car_make === "Audi") {
       
       carsOfGermany.push(inventory[i]);
 
-      return carsOfGermany
+      }
     }
-
+    return carsOfGermany
+  }
 /**
  * ### Challenge refactor to arrow functions
  * 
